@@ -1,6 +1,28 @@
 // ---- Define your dialogs  and panels here ----
+var permissions = define_new_effective_permissions("panelUse", add_info_col = true)
+$('#sidepanel').append(permissions)
 
+var userSel = define_new_user_select_field("useSelect", "press", function(selected_user) {
+    $('#panelUse').attr('username', selected_user)
+})
+$('#panelUse').attr('filepath', '/C/presentation_documents/important_file.txt')
+$('#sidepanel').append(userSel)
 
+var info = define_new_dialog("infoBox", title="Dialog")
+$('.perm_info').click(function(){
+    info.empty()
+    console.log('clicked!')
+    info.dialog('open')
+    console.log($('#panelUse').attr('filepath'))
+    console.log($('#panelUse').attr('username'))
+    console.log($(this).attr('permission_name'))
+
+    var fileObj = path_to_file[$('#panelUse').attr('filepath')]
+    var nameObj = all_users[$('#panelUse').attr('username')]
+    var allowed = allow_user_action(fileObj, nameObj, $(this).attr('permission_name'), true)
+    var explain = get_explanation_text(allowed);
+    info.append(explain);
+})
 
 // ---- Display file structure ----
 
