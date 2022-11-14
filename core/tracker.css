@@ -10,8 +10,12 @@
 }
 
 #html-loc {
-    position: relative;
+    /* position: relative; */
+    margin-left: 300px;
+    /* margin-right: 150px; */
     z-index: 0;
+    width: 120%;
+
 }
 
 .top-banner-button {

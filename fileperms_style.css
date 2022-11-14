@@ -1,6 +1,7 @@
 .file {
     padding: 8;
     border-bottom: 1px solid #dddddd;
+    /* width: 100%; */
 }
 
 .section {
@@ -17,7 +18,6 @@
     bottom: 0;
     right: 0;
 }
-
 
 #mturk-top-banner-drop-down-content {
     position: absolute;
